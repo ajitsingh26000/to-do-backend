@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const bodyParser = require('body-parser');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+const loginRouter = express.Router();
+
+loginRouter.use(bodyParser.json());
+
+loginRouter.post('/', function(req, res, next) {
+  res.send('respond with a resource');
 });
 
-module.exports = router;
+module.exports = loginRouter;
